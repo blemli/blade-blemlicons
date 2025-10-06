@@ -1,6 +1,6 @@
 {
   "private": true,
   "dependencies": {
-    "blemlicons": "^1.0.1"
+    "blemlicons": "^0.2.1"
   }
 }
