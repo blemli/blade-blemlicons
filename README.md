@@ -1,28 +1,10 @@
 # Blemlicons
 
-<a href="https://github.com/blemli/blade-blemlicons/actions?query=workflow%3ATests">
-    <img src="https://github.com/blemli/blade-blemlicons/workflows/Tests/badge.svg" alt="Tests">
-</a>
-<a href="https://packagist.org/packages/blemli/blade-blemlicons">
-    <img src="https://img.shields.io/packagist/v/blemli/blade-blemlicons" alt="Latest Stable Version">
-</a>
-<a href="https://packagist.org/packages/blemli/blade-blemlicons">
-    <img src="https://img.shields.io/packagist/dt/blemli/blade-blemlicons" alt="Total Downloads">
-</a>
-
-> This is a template repository for new icon packages for [Blade Icons](https://github.com/driesvints/blade-icons). Start a new repo with this and replace the relevant things below:
-> 
-> 1. `blemli` with your GitHub organization
-> 2. `blade-blemlicons` with your repository name
-> 3. `Blade Blemlicons` & `Blemlicons` with your icon set name
-> 4. Any other reference to `Blemlicons` with your icon set name
-> 5. `Problemli` with your name
-> 
-> Then, make sure [the implementation](./src) is correct, that you set up [icon generation](https://github.com/driesvints/blade-icons#generating-icons) and that [your tests](./tests) pass. And remove this quote block from your readme. When you've published your package on Packagist, make sure to send it in to [the Blade Icons package list](https://github.com/driesvints/blade-icons#icon-packages).
+<a href="https://github.com/blemli/blade-blemlicons/actions?query=workflow%3ATests">    <img src="https://github.com/blemli/blade-blemlicons/workflows/Tests/badge.svg" alt="Tests"></a><a href="https://packagist.org/packages/blemli/blade-blemlicons"><img src="https://img.shields.io/packagist/v/blemli/blade-blemlicons" alt="Latest Stable Version"></a><a href="https://packagist.org/packages/blemli/blade-blemlicons"><img src="https://img.shields.io/packagist/dt/blemli/blade-blemlicons" alt="Total Downloads"></a>
 
 A package to easily make use of [Blemlicons](https://github.com/blemli/blemlicons) in your Laravel Blade views.
 
-For a full list of available icons see [the SVG directory](resources/svg) or preview them at [icons.problem.li](https://icons.problem.li).
+For a full list of available icons see [the SVG directory](resources/svg) ~~or preview them at [icons.problem.li](https://icons.problem.li).~~
 
 ## Requirements
 
@@ -37,7 +19,11 @@ composer require blemli/blade-blemlicons
 
 ## Updating
 
-Please refer to [`the upgrade guide`](UPGRADE.md) when updating the library.
+```bash
+npm update
+vendor/bin/blade-icons-generate
+```
+
 
 ## Blade Icons
 
@@ -56,26 +42,28 @@ php artisan vendor:publish --tag=blade-blemlicons-config
 Icons can be used as self-closing Blade components which will be compiled to SVG icons:
 
 ```blade
-<x-blemlicon-o-adjustments/>
+<x-blemlicon-problemli/>
 ```
 
 You can also pass classes to your icon components:
 
 ```blade
-<x-blemlicon-o-adjustments class="w-6 h-6 text-gray-500"/>
+<x-blemlicon-problemli class="w-6 h-6 text-gray-500"/>
 ```
 
 And even use inline styles:
 
 ```blade
-<x-blemlicon-o-adjustments style="color: #555"/>
+<x-blemlicon-problemli style="color: #555"/>
 ```
 
 The solid icons can be referenced like this:
 
 ```blade
-<x-blemlicon-s-cashctrl/>
+<x-blemlicon-s-problemli/>
 ```
+
+
 
 ### Raw SVG Icons
 
@@ -88,12 +76,40 @@ php artisan vendor:publish --tag=blade-blemlicons --force
 Then use them in your views like:
 
 ```blade
-<img src="{{ asset('vendor/blade-blemlicons/s-problemli.svg') }}" width="10" height="10"/>
+<img src="{{ asset('vendor/blade-blemlicons/problemli.svg') }}" width="10" height="10"/>
 ```
+
+
+
+### Filament
+
+If youre using Filamentphp you should use [filament-icons](https://github.com/GuavaCZ/filament-icons) to install blemlicons:
+
+```bash
+composer require --dev guava/filament-icons
+php artisan filament-icons:install
+php artisan filament-icons:generate
+```
+
+
 
 ## Changelog
 
 Check out the [CHANGELOG](CHANGELOG.md) in this repository for all the recent changes.
+
+## Contributing
+
+Don't change icons here, make a PR in [blemli/blemlicons](https://github.com/blemli/blemlicons) then here run:
+
+```
+npm update
+vendor/bin/blade-icons-generate
+```
+
+## Todo
+
+- [ ] Solid (s-) and outlined (-o)
+- [ ] make PR on 
 
 ## Maintainers
 
